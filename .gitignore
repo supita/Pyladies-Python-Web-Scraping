@@ -1,0 +1,9 @@
+# Virtualenv stuff
+local
+lib
+bin
+include
+
+# other
+*~
+*.pyc
