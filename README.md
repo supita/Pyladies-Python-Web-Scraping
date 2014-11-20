@@ -11,7 +11,7 @@ The talk is meant to introduce programmers into the scraping data world using py
 
 As the talk is about BeautifulSoup, requests, and selenium, you'll need this packages.
 
-You can whether install them globally:
+You can either install them globally:
 
     sudo pip install requests selenium beautifulsoup4
 
