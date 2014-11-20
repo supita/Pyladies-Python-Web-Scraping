@@ -1,6 +1,7 @@
-"""
+""" Basic scraper to extract the information from the messages listed under
+selected meetup groups using Selenium webdriver
 
-@author Estela Alvarez
+@author Estela Alvarez supita@gmail.com
 """
 
 
@@ -15,11 +16,14 @@ from beautifulsoup_example import print_messages_info, extract_board_messages_in
 
 import re
 
+group_name_re = re.compile(r"http://www.meetup.com/(.*)/")
+
 
 def get_webdriver():
     profile = webdriver.FirefoxProfile()
     profile.set_preference("general.useragent.override", "some UA string")
     browser = webdriver.Firefox(profile)
+    browser.maximize_window()
 
     return browser
 
@@ -30,8 +34,6 @@ def get_groups_name_from_query(browser, query="js montreal"):
     search_box = browser.find_element_by_id("mainKeywords")
     search_box.send_keys(query)
     search_box.send_keys(Keys.RETURN)
-
-    group_name_re = re.compile(r"http://www.meetup.com/(.*)/")
 
     groups_name = []
     for link in browser.find_elements_by_xpath(
@@ -45,7 +47,7 @@ def get_groups_name_from_query(browser, query="js montreal"):
     return groups_name
 
 
-def print_discussions_info_from_given_groups(browser, groups_name=[]):
+def get_discussions_and_print_info_from_given_groups(browser, groups_name=[]):
     for group in groups_name:
         browser.get("http://www.meetup.com/%s/messages/boards/" % group)
         try:
@@ -63,7 +65,7 @@ def print_discussions_info_from_given_groups(browser, groups_name=[]):
                 messages = get_messages_from_board(browser)
             print_messages_info(messages)
         except:
-            browser.quit()
+            browser.close()
 
 
 def get_messages_from_board(browser):
@@ -95,7 +97,7 @@ def main():
     browser = get_webdriver()
     groups_name = get_groups_name_from_query(browser)
 
-    print_discussions_info_from_given_groups(browser, groups_name)
+    get_discussions_and_print_info_from_given_groups(browser, groups_name)
 
     browser.close()
 

@@ -1,7 +1,7 @@
-""" Little scraper to extract the information from the messages listed under
-PyLadies Discussion board using BeautifulSoup
+""" Basic scraper to extract the information from the messages listed under
+PyLadies Discussion board using BeautifulSoup and requests
 
-@author Estela Alvarez
+@author Estela Alvarez supita@gmail.com
 """
 
 import requests
