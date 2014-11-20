@@ -18,9 +18,13 @@ Or create a virtual enviroment in your folder for it:
 
     sudo pip install virtualenv
 
-Then run the installation script:
+Run the installation script:
 
     ./setup_virtualenv
+
+And run your virtual enviroment:
+
+    source bin/activate
 
 # Some Documentation
 
