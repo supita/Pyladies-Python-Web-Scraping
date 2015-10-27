@@ -37,7 +37,7 @@ def get_groups_name_from_query(browser, query="js montreal"):
 
     groups_name = []
     for link in browser.find_elements_by_xpath(
-            '//ul[contains(@class, "search-result")]//a[contains(@class, "display-none") and contains(@href, "http://www.meetup.com/")]'):
+            '//ul[contains(@class, "searchResult")]//a[contains(@class, "display-none") and contains(@href, "http://www.meetup.com/")]'):
 
         match = group_name_re.search(link.get_attribute("href"))
 
