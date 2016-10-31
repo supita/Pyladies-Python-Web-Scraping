@@ -1,7 +1,7 @@
 PyLadies Python Web Scraping: Using BeautifulSoup and Selenium 
 ============================
 
-# About this talk
+# About this talk   
 
 The code and presentation here were done for this [PyLadies event](http://www.meetup.com/PyLadiesMTL/events/218661961/). The scrapers developed are pretty basic and they are not intended to work for any meetup group.
 
